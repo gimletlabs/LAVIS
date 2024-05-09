@@ -20,7 +20,7 @@ def fetch_requirements(filename):
 
 setup(
     name="lavis-gml",
-    version="1.0.2.post1",
+    version="1.0.2.post3",
     url="https://github.com/gimletlabs/LAVIS",
     author="Dongxu Li, Junnan Li, Hung Le, Guangsen Wang, Silvio Savarese, Steven C.H. Hoi",
     description="LAVIS - A One-stop Library for Language-Vision Intelligence",
