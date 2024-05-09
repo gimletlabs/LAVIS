@@ -5,6 +5,7 @@
  For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
 """
 
+import logging
 import random
 
 import spacy
@@ -58,7 +59,21 @@ class Img2PromptVQA(BaseModel):
         self.question_generation_model = question_generation_model
         self.question_generation_tokenizer = question_generation_tokenizer
         self.offload_model = offload_model
-        self.nlp = spacy.load("en_core_web_sm")
+        try:
+            import spacy
+
+            self.nlp = spacy.load("en_core_web_sm")
+        except ImportError:
+            logging.error(
+                """
+                Please install spacy and en_core_web_sm model.
+                python -m spacy download en_core_web_sm
+                OR
+                import spacy.cli
+                spacy.cli.download("en_core_web_sm")
+                """
+            )
+            exit(1)
 
     def forward_itm(self, samples, block_num=7):
         """
