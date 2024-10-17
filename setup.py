@@ -5,7 +5,7 @@
  For full license text, see the LICENSE file in the repo root or https://opensource.org/licenses/BSD-3-Clause
 """
 
-from setuptools import setup, find_namespace_packages
+from setuptools import setup
 import platform
 
 DEPENDENCY_LINKS = []
@@ -20,7 +20,7 @@ def fetch_requirements(filename):
 
 setup(
     name="lavis-gml",
-    version="1.0.2.post4",
+    version="1.0.2.post5",
     url="https://github.com/gimletlabs/LAVIS",
     author="Dongxu Li, Junnan Li, Hung Le, Guangsen Wang, Silvio Savarese, Steven C.H. Hoi",
     description="LAVIS - A One-stop Library for Language-Vision Intelligence",
@@ -28,7 +28,7 @@ setup(
     long_description_content_type="text/markdown",
     keywords="Vision-Language, Multimodal, Image Captioning, Generative AI, Deep Learning, Library, PyTorch",
     license="3-Clause BSD",
-    packages=find_namespace_packages(include="lavis.*"),
+    package_dir = {"lavis": "lavis"},
     install_requires=fetch_requirements("requirements.txt"),
     python_requires=">=3.7.0",
     include_package_data=True,
